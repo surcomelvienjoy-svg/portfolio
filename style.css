@@ -1,0 +1,666 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #fcfcfc;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --accent-color: #0f172a;
+  --accent-hover: #334155;
+  --badge-bg: #f1f5f9;
+  --badge-text: #334155;
+  --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode {
+  --bg-color: #0b0f17;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --card-bg: #111827;
+  --border-color: #1f2937;
+  --accent-color: #f8fafc;
+  --accent-hover: #e2e8f0;
+  --badge-bg: #1f2937;
+  --badge-text: #e2e8f0;
+  --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 8%;
+  background: var(--bg-color);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: var(--text-primary);
+}
+
+.theme-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn:hover {
+  background: var(--badge-bg);
+}
+
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 90px 20px;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 40px;
+  color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: left;
+  padding: 120px 20px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  margin-bottom: 25px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.hero-section h3 {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+
+.hero-section p {
+  max-width: 600px;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.primary-btn {
+  background: var(--accent-color);
+  color: var(--bg-color);
+}
+
+.primary-btn:hover {
+  opacity: 0.9;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.secondary-btn:hover {
+  background: var(--badge-bg);
+}
+
+/* Grids & Cards */
+.about-grid, .skills-grid, .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.about-card, .skill-card, .project-card {
+  background: var(--card-bg);
+  padding: 28px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.about-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.skill-card {
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.skill-card i {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.project-card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-card .tags span {
+  font-size: 0.78rem;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Chatbot Section */
+.chat-container {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.chat-window {
+  height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-color);
+}
+
+.bot-msg, .user-msg {
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  max-width: 80%;
+  line-height: 1.5;
+}
+
+.bot-msg {
+  background: var(--badge-bg);
+  color: var(--text-primary);
+  align-self: flex-start;
+}
+
+.user-msg {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  align-self: flex-end;
+}
+
+.chat-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chat-options button {
+  padding: 8px 16px;
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.chat-options button:hover {
+  background: var(--badge-bg);
+}
+
+/* Contact Section */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-form input, .contact-form textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+  border-color: var(--text-primary);
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: var(--text-secondary);
+}
+
+.social-links a:hover {
+  color: var(--text-primary);
+}
+
+footer {
+  text-align: center;
+  padding: 40px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 80px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 600px) {
+  .nav-links { display: none; }
+  .hero-section h1 { font-size: 2.2rem; }
+}
+
+/* Hero Section Layout */
+.hero-section {
+  padding: 100px 20px 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.hero-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Status Badge */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+.hero-text h3 {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin-bottom: 18px;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Photo on Right Side */
+.hero-image {
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse; /* Nilalagay ang picture sa taas pag nasa phone */
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .hero-text {
+    text-align: center;
+  }
+  
+  .hero-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .profile-img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px; /* Rounded corners gaya sa picture */
+  padding: 18px; /* Inner padding sa buong card */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Image Wrapper with Inner Border Radius */
+.project-img-wrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background-color: var(--badge-bg);
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Info Section inside Card */
+.project-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Tech Tags sa Ilalim agad ng Image */
+.project-info .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.project-info .tags span {
+  font-size: 0.78rem;
+  font-weight: 500;
+  background-color: rgba(59, 130, 246, 0.12); /* Subtle blue tint pill background */
+  color: #2563eb; /* Blue accent text */
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Dark mode tag adjustment */
+body.dark-mode .project-info .tags span {
+  background-color: rgba(96, 165, 250, 0.18);
+  color: #93c5fd;
+}
+
+.project-info h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.project-info p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Live Demo & Repository Links at Bottom */
+.project-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-top: 10px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+  opacity: 0.7;
+}
+
+.project-link svg {
+  stroke: var(--text-primary);
+}
+
+/* Dual Image Layout inside Card */
+.project-img-wrapper.pos-dual-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  height: 220px;
+  background-color: #f1f5f9;
+  border-radius: 14px;
+}
+
+.project-img-wrapper.pos-dual-grid .project-img {
+  width: 48%; /* Bawat isa 48% para magkasya silang dalawa side-by-side */
+  height: 100%;
+  object-fit: contain; /* SISIGURADUHIN NITO NA BUONG LOGIN FORM ANG KITA AT WALANG MAPUPUTOL */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+body.dark-mode .project-img-wrapper.pos-dual-grid {
+  background-color: #1e293b;
+}
+
+/* Normal / Light Mode Background para sa image container */
+.project-img-wrapper.pos-dual-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  height: 220px;
+  background-color: #f1f5f9; /* Light grayish background */
+  border-radius: 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* 🌙 NIGHT / DARK MODE ADJUSTMENT */
+body.dark-mode .project-card {
+  background-color: #1e293b; /* Dark navy card background */
+  border-color: #334155;
+}
+
+body.dark-mode .project-img-wrapper.pos-dual-grid {
+  background-color: #0f172a; /* Mas madilim na background para sa image frame sa gabi */
+}
+
+body.dark-mode .project-img {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Mas halatang shadow sa paligid ng preview sa gabi */
+}
+
+body.dark-mode .project-info .tags span {
+  background-color: rgba(147, 197, 253, 0.15); /* Soft blue glow badge sa dark mode */
+  color: #93c5fd;
+}
+
+body.dark-mode .project-link {
+  color: #e2e8f0;
+}
+
+body.dark-mode .project-link svg {
+  stroke: #e2e8f0;
+}
