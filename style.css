@@ -578,3 +578,29 @@ footer {
   .hero-buttons { justify-content: center; }
   .profile-img { width: 170px; height: 170px; }
 }
+/* Glassmorphism Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8%;
+  z-index: 100;
+
+  /* Glass Effects */
+  background: rgba(255, 255, 255, 0.45); /* Light translucent background */
+  backdrop-filter: blur(12px); /* Blurs content beneath the navbar */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  
+  /* Glass Border & Soft Floating Shadow */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+/* Glassmorphism Dark Mode Styling */
+body.dark-mode .navbar {
+  background: rgba(15, 23, 42, 0.65); /* Dark translucent background */
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
