@@ -1,10 +1,10 @@
 // ==========================================
-// 1. LIGHT / DARK MODE TOGGLE (WITH SAVING)
+// 1. LIGHT / DARK MODE TOGGLE (WITH LOCALSTORAGE)
 // ==========================================
 const themeToggleBtn = document.getElementById('theme-toggle');
-const themeIcon = themeToggleBtn.querySelector('i');
+const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
 
-// Check if user previously saved a preferred theme in localStorage
+// Load saved theme preference on initial load
 const savedTheme = localStorage.getItem('theme');
 
 if (savedTheme === 'dark') {
@@ -15,41 +15,43 @@ if (savedTheme === 'dark') {
   }
 }
 
-themeToggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  
-  const isDarkMode = document.body.classList.contains('dark-mode');
+if (themeToggleBtn) {
+  themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    const isDarkMode = document.body.classList.contains('dark-mode');
 
-  // Toggle icon state
-  if (themeIcon) {
-    if (isDarkMode) {
-      themeIcon.classList.remove('fa-moon');
-      themeIcon.classList.add('fa-sun');
-    } else {
-      themeIcon.classList.remove('fa-sun');
-      themeIcon.classList.add('fa-moon');
+    // Toggle icon state
+    if (themeIcon) {
+      if (isDarkMode) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
     }
-  }
 
-  // Save preference in local browser storage
-  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-});
+    // Save state to local browser storage
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  });
+}
 
 
 // ==========================================
 // 2. ASK ABOUT ME CHATBOT
 // ==========================================
 const answers = {
-  skills: "I specialize in HTML5, CSS3, JavaScript, React, PHP, and MySQL!",
-  experience: "I have experience developing full-stack applications like POS Systems and Payroll Management platforms.",
-  contact: "You can email me directly or send a message using the form at the bottom of this page!"
+  skills: "I specialize in HTML5, CSS3, JavaScript, PHP, and MySQL!",
+  experience: "I have experience developing full-stack web applications like POS Systems and Payroll Management platforms.",
+  contact: "You can reach me directly at surcomelvienjoy@gmail.com or send a message using the form below!"
 };
 
 function askQuestion(type) {
   const chatWindow = document.getElementById('chat-window');
   if (!chatWindow) return;
 
-  // Determine user question text
+  // Set user question text
   let userText = "";
   if (type === 'skills') userText = "What are your top skills?";
   if (type === 'experience') userText = "Tell me about your experience.";
@@ -61,7 +63,7 @@ function askQuestion(type) {
   userMsgDiv.innerText = userText;
   chatWindow.appendChild(userMsgDiv);
 
-  // Auto-scroll to latest user message
+  // Auto scroll down
   chatWindow.scrollTop = chatWindow.scrollHeight;
 
   // Append bot response after a brief delay
@@ -71,14 +73,14 @@ function askQuestion(type) {
     botMsgDiv.innerText = answers[type] || "Feel free to ask another question!";
     chatWindow.appendChild(botMsgDiv);
     
-    // Auto-scroll to show bot response
+    // Auto scroll down to response
     chatWindow.scrollTop = chatWindow.scrollHeight;
   }, 400);
 }
 
 
 // ==========================================
-// 3. CONTACT FORM SUBMISSION
+// 3. CONTACT FORM SUBMISSION HANDLER
 // ==========================================
 const contactForm = document.getElementById('contact-form');
 
@@ -86,10 +88,7 @@ if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     
-    // Show success message
     alert('Thank you for reaching out! Your message has been sent successfully.');
-    
-    // Clear form inputs
     contactForm.reset();
   });
 }
