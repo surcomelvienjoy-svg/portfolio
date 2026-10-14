@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+=======
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 
+/* ==========================================
+   COLOR PALETTE & GLASS VARIABLES
+   ========================================== */
 :root {
+<<<<<<< HEAD
   --bg-color: #fdeef3;
   --bg-soft: #fbd9e4;
   --text-primary: #3b1a28;
@@ -49,18 +57,69 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--nav-h) + 16px);
   -webkit-text-size-adjust: 100%;
+=======
+  /* Feminine Light Mode (Rose Gold & Soft Blush Theme) */
+  --bg-gradient: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #f3e8ff 100%);
+  --bg-color: #fdf2f8;
+  --text-primary: #4c1d95;
+  --text-secondary: #701a75;
+  --accent-color: #db2777;
+  --accent-hover: #be185d;
+  
+  /* Light Glassmorphism Specs */
+  --glass-bg: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 32px 0 rgba(219, 39, 119, 0.08);
+  
+  --badge-bg: rgba(251, 207, 232, 0.5);
+  --badge-text: #9d174d;
+  --dual-img-bg: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode {
+  /* Feminine Dark Mode (Deep Plum, Midnight Neon & Magenta Accent) */
+  --bg-gradient: linear-gradient(135deg, #0f0716 0%, #1a092b 50%, #2a0835 100%);
+  --bg-color: #0f0716;
+  --text-primary: #fbcfe8;
+  --text-secondary: #e9d5ff;
+  --accent-color: #f472b6;
+  --accent-hover: #f43f5e;
+  
+  /* Dark Glassmorphism Specs */
+  --glass-bg: rgba(23, 11, 35, 0.55);
+  --glass-border: rgba(244, 114, 182, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+  
+  --badge-bg: rgba(131, 24, 67, 0.4);
+  --badge-text: #fbcfe8;
+  --dual-img-bg: rgba(15, 7, 22, 0.5);
+}
+
+html {
+  scroll-behavior: smooth;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
 }
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background-color: var(--bg-color);
   background-image: radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.35), transparent 42%), radial-gradient(circle at 88% 22%, rgba(219, 39, 119, 0.08), transparent 46%);
+=======
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   color: var(--text-primary);
   line-height: 1.75;
   min-height: 100vh;
@@ -83,10 +142,19 @@ textarea:focus-visible {
   border-radius: 6px;
 }
 
-/* Navigation */
+/* Accessibility Focus Ring */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   GLASS NAVIGATION BAR
+   ========================================== */
 .navbar {
   position: sticky;
   top: 12px;
+<<<<<<< HEAD
   min-height: var(--nav-h);
   display: flex;
   justify-content: space-between;
@@ -112,6 +180,28 @@ body.dark-mode .navbar {
 
 .logo {
   font-size: 1.35rem;
+=======
+  margin: 0 auto;
+  width: 92%;
+  max-width: 1000px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 28px;
+  z-index: 100;
+
+  /* Glass Effect */
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.logo {
+  font-size: 1.3rem;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   font-weight: 800;
   letter-spacing: -0.5px;
   white-space: nowrap;
@@ -125,7 +215,11 @@ body.dark-mode .navbar {
   display: flex;
   align-items: center;
   list-style: none;
+<<<<<<< HEAD
   gap: clamp(14px, 2.5vw, 28px);
+=======
+  gap: 28px;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 .nav-links a {
@@ -137,6 +231,7 @@ body.dark-mode .navbar {
   padding: 8px 2px;
 }
 
+<<<<<<< HEAD
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -160,11 +255,27 @@ body.dark-mode .navbar {
 }
 
 .nav-actions {
+=======
+.nav-links a:hover {
+  color: var(--accent-color);
+}
+
+.theme-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
+<<<<<<< HEAD
 .theme-btn,
 .menu-btn {
   width: 42px;
@@ -247,6 +358,34 @@ body.dark-mode .navbar {
 .hero-section {
   position: relative;
   max-width: var(--max-w);
+=======
+.theme-btn:hover {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+/* ==========================================
+   LAYOUT & CONTAINERS
+   ========================================== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 36px;
+  color: var(--text-primary);
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 100px 20px 60px;
+  max-width: 960px;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   margin: 0 auto;
   min-height: min(82vh, 720px);
   display: flex;
@@ -292,6 +431,7 @@ body.dark-mode .hero-section::before {
   gap: 8px;
   background: var(--badge-bg);
   color: var(--badge-text);
+<<<<<<< HEAD
   padding: 7px 14px;
   border-radius: 999px;
   font-size: 0.82rem;
@@ -299,18 +439,34 @@ body.dark-mode .hero-section::before {
   margin-bottom: 18px;
   border: 1px solid var(--border-color);
   max-width: 100%;
+=======
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  border: 1px solid var(--glass-border);
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 .status-dot {
   width: 8px;
   height: 8px;
+<<<<<<< HEAD
   flex-shrink: 0;
   background-color: #10b981;
   border-radius: 50%;
+=======
+  background-color: #ec4899;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
+<<<<<<< HEAD
   0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
   70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
   100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
@@ -318,10 +474,20 @@ body.dark-mode .hero-section::before {
 
 .hero-text h1 {
   font-size: clamp(2.1rem, 1.35rem + 3.4vw, 3.1rem);
+=======
+  0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(236, 72, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   font-weight: 800;
   letter-spacing: -1.2px;
   line-height: 1.05;
   margin-bottom: 10px;
+<<<<<<< HEAD
   text-wrap: balance;
 }
 
@@ -330,14 +496,31 @@ body.dark-mode .hero-section::before {
   font-weight: 500;
   font-size: clamp(1rem, 0.92rem + 0.6vw, 1.18rem);
   margin-bottom: 16px;
+=======
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+.hero-text h3 {
+  color: var(--accent-color);
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 .hero-text p {
   font-size: clamp(1rem, 0.94rem + 0.35vw, 1.1rem);
   color: var(--text-secondary);
+<<<<<<< HEAD
   margin-bottom: 36px;
   max-width: 32rem;
   text-wrap: pretty;
+=======
+  margin-bottom: 30px;
+  max-width: 520px;
+  line-height: 1.6;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 .hero-buttons {
@@ -353,6 +536,7 @@ body.dark-mode .hero-section::before {
 }
 
 .profile-img {
+<<<<<<< HEAD
   width: clamp(190px, 24vw, 270px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
@@ -381,27 +565,63 @@ body.dark-mode .hero-section::before {
 
 .btn:active {
   transform: translateY(1px);
+=======
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 .primary-btn {
   background: var(--accent-color);
+<<<<<<< HEAD
   color: var(--bg-color);
   box-shadow: 0 10px 22px -10px rgba(15, 23, 42, 0.45);
+=======
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(219, 39, 119, 0.3);
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 .primary-btn:hover {
   background: var(--accent-hover);
+<<<<<<< HEAD
   transform: translateY(-1px);
 }
 
 .secondary-btn {
   background: var(--card-bg);
   border-color: var(--border-color);
+=======
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   color: var(--text-primary);
 }
 
 .secondary-btn:hover {
   background: var(--badge-bg);
+<<<<<<< HEAD
   transform: translateY(-1px);
 }
 
@@ -444,19 +664,58 @@ body.dark-mode .hero-section::before {
 .about-card h3 {
   font-size: 1.05rem;
   font-weight: 700;
+=======
+}
+
+/* ==========================================
+   GLASS CARDS (About, Skills, Projects, Chat)
+   ========================================== */
+.about-grid, .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.about-card, .skill-card, .project-card, .chat-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: var(--glass-shadow);
+}
+
+.about-card, .skill-card {
+  padding: 24px;
+}
+
+.about-card:hover, .skill-card:hover, .project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-color);
+}
+
+.about-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   margin-bottom: 12px;
   display: flex;
   align-items: center;
   gap: 10px;
+<<<<<<< HEAD
 }
 
 .about-card h3 i {
   color: var(--brand);
+=======
+  color: var(--accent-color);
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 
 .about-card p {
   color: var(--text-secondary);
   font-size: 0.95rem;
+<<<<<<< HEAD
   overflow-wrap: anywhere;
 }
 
@@ -464,10 +723,20 @@ body.dark-mode .hero-section::before {
   display: flex;
   flex-direction: column;
   gap: 14px;
+=======
+}
+
+/* Timeline inside Glass Card */
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   margin-top: 10px;
 }
 
 .edu-item {
+<<<<<<< HEAD
   padding-left: 14px;
   border-left: 2px solid var(--border-color);
 }
@@ -1341,3 +1610,23 @@ footer {
   }
   .reveal { opacity: 1; transform: none; }
 }
+=======
+  position: relative;
+  padding-left: 14px;
+  border-left: 2px solid var(--glass-border);
+}
+
+.edu-item:hover {
+  border-left-color: var(--accent-color);
+}
+
+.edu-degree {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+
+.edu-school {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+>>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
