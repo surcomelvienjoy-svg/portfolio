@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mel Vien Joy Surco — Full-Stack Web Developer portfolio. Clean, responsive web apps with HTML, CSS, JavaScript, PHP and MySQL.">
   <title>Mel Vien Joy Surco | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -11,25 +14,30 @@
 
   <!-- Navigation -->
   <nav class="navbar">
-    <div class="logo">MVJ.</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#chatbot">Ask Me</a></li>
-      <li><a href="#contact">Contact</a></li>
+    <div class="logo">MVJ<span class="logo-dot">.</span></div>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#resume" class="nav-link">Resume</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
     </ul>
-    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-      <i class="fa-solid fa-moon"></i>
-    </button>
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button id="menu-toggle" class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
   </nav>
 
   <!-- Home Section -->
   <section id="home" class="hero-section">
     <div class="hero-container">
       <div class="hero-text">
-        <span class="status-badge"><span class="status-dot"></span> Available for work</span>
+        <span class="status-badge"><span class="status-dot"></span> Available for work · Lipa City, PH</span>
         <h1>Mel Vien Joy Surco</h1>
         <h3>Full-Stack Web Developer</h3>
         <p>I build clean, responsive, and user-friendly web applications that solve real-world problems.</p>
@@ -46,6 +54,7 @@
 
   <!-- About Me Section -->
   <section id="about" class="container">
+    <p class="section-eyebrow">01 — About</p>
     <h2 class="section-title">About Me</h2>
     <div class="about-grid">
       
@@ -63,7 +72,7 @@
           <div class="edu-item">
             <p class="edu-degree"><strong>B.S. in Computer Science</strong></p>
             <p class="edu-school">Lipa City Colleges</p>
-            <span class="edu-year">2023 - Present (Expected 2027)</span>
+            <span class="edu-year">2026 - 2027</span>
           </div>
 
           <div class="edu-item">
@@ -93,18 +102,40 @@
 
   <!-- Skills Section -->
   <section id="skills" class="container">
+    <p class="section-eyebrow">02 — Toolkit</p>
     <h2 class="section-title">Skills & Technologies</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><i class="fa-brands fa-html5"></i> HTML5</div>
-      <div class="skill-card"><i class="fa-brands fa-css3-alt"></i> CSS3</div>
-      <div class="skill-card"><i class="fa-brands fa-js"></i> JavaScript (ES6+)</div>
-      <div class="skill-card"><i class="fa-brands fa-php"></i> PHP</div>
-      <div class="skill-card"><i class="fa-brands fa-git-alt"></i> Git & GitHub</div>
+    <div class="toolkit-grid">
+
+      <div class="toolkit-group">
+        <h3><i class="fa-solid fa-code"></i> Frontend</h3>
+        <ul class="toolkit-list">
+          <li><i class="fa-brands fa-html5"></i> HTML5</li>
+          <li><i class="fa-brands fa-css3-alt"></i> CSS3</li>
+          <li><i class="fa-brands fa-js"></i> JavaScript (ES6+)</li>
+        </ul>
+      </div>
+
+      <div class="toolkit-group">
+        <h3><i class="fa-solid fa-server"></i> Backend & Data</h3>
+        <ul class="toolkit-list">
+          <li><i class="fa-brands fa-php"></i> PHP</li>
+          <li><i class="fa-solid fa-database"></i> MySQL</li>
+        </ul>
+      </div>
+
+      <div class="toolkit-group">
+        <h3><i class="fa-solid fa-screwdriver-wrench"></i> Tools & Workflow</h3>
+        <ul class="toolkit-list">
+          <li><i class="fa-brands fa-git-alt"></i> Git & GitHub</li>
+        </ul>
+      </div>
+
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="container">
+    <p class="section-eyebrow">03 — Selected work</p>
     <h2 class="section-title">Featured Projects</h2>
     <div class="projects-grid">
       
@@ -116,6 +147,7 @@
         </div>
         
         <div class="project-info">
+          <p class="project-meta">01 · Web Application · Academic Project</p>
           <div class="tags">
             <span>HTML</span>
             <span>CSS</span>
@@ -145,6 +177,7 @@
         </div>
 
         <div class="project-info">
+          <p class="project-meta">02 · Web Application · Academic Project</p>
           <div class="tags">
             <span>HTML</span>
             <span>CSS</span>
@@ -169,10 +202,109 @@
     </div>
   </section>
 
-  <!-- Chatbot Section -->
-  <section id="chatbot" class="container">
-    <h2 class="section-title">Ask About Me</h2>
-    <div class="chat-container">
+  <!-- Resume Section -->
+  <section id="resume" class="container">
+    <p class="section-eyebrow">04 — Resume</p>
+    <h2 class="section-title resume-screen-title">My Resume</h2>
+    <div class="resume-actions">
+      <button id="print-resume" class="btn primary-btn" type="button">
+        <i class="fa-solid fa-download"></i>&nbsp; Download Resume (PDF)
+      </button>
+      <span class="resume-hint">Opens print dialog — choose “Save as PDF”.</span>
+    </div>
+
+    <div class="resume-paper" id="resume-paper">
+      <header class="resume-head">
+        <h3>Mel Vien Joy R. Surco</h3>
+        <p>surcomelvienjoy@gmail.com | 0995-444-8351 | 058 Pagolingin West, Lipa City, Batangas</p>
+      </header>
+
+      <div class="resume-cols">
+        <div class="resume-main">
+          <h4>Education</h4>
+
+          <div class="resume-item">
+            <div class="resume-item-head">
+              <strong>Pagolingin Elementary School</strong>
+              <span class="edu-year">2018 – 2019</span>
+            </div>
+            <p>Graduated primary year as an honor student. Active in curricular activities.</p>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-head">
+              <strong>Anilao Integrated National High School</strong>
+              <span class="edu-year">2022 – 2023</span>
+            </div>
+            <p>Performed well in school activities, especially academics. Graduated as an honor student.</p>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-head">
+              <strong>LCC Silvercrest Senior High School — STEM</strong>
+              <span class="edu-year">2024 – 2025</span>
+            </div>
+            <p>Graduated in the STEM strand as an honor student.</p>
+          </div>
+
+          <div class="resume-item">
+            <div class="resume-item-head">
+              <strong>Lipa City Colleges — B.S. in Computer Science</strong>
+              <span class="edu-year">2025 – 2026</span>
+            </div>
+            <p>Currently taking Bachelor of Science in Computer Science (first year).</p>
+          </div>
+
+          <h4 class="resume-subhead">Work Experience</h4>
+
+          <div class="resume-item">
+            <div class="resume-item-head">
+              <strong>M&amp;V Dessert Shop — Manager</strong>
+              <span class="edu-year">2023 – 2026</span>
+            </div>
+            <ul class="resume-bullets">
+              <li>Encode products in Excel, manage content, and do inventory.</li>
+              <li>Fix and maintain the payroll list of helpers.</li>
+              <li>Family business co-managed with my mother.</li>
+            </ul>
+          </div>
+        </div>
+
+        <aside class="resume-side">
+          <h4>Profile</h4>
+          <p>Skillfully talented with strong critical thinking. Communicates easily, solves problems easily, and quickly adapts to any work instruction.</p>
+
+          <h4 class="resume-subhead">Skills</h4>
+          <ul class="resume-bullets">
+            <li>Management Skills</li>
+            <li>Digital Marketing</li>
+            <li>Negotiation</li>
+            <li>Critical Thinking</li>
+            <li>Communication Skills</li>
+          </ul>
+
+          <h4 class="resume-subhead">Language</h4>
+          <ul class="resume-bullets">
+            <li>English</li>
+            <li>Tagalog</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chatbot floating widget (bottom-right) -->
+  <div class="chat-fab-wrap">
+    <div class="chat-popup" id="chat-popup" aria-hidden="true">
+      <div class="chat-header">
+        <div class="chat-header-text">
+          <strong>Ask About Me</strong>
+          <span>Mel's AI assistant</span>
+        </div>
+        <button id="chat-close" class="chat-close" aria-label="Close chat">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
       <div id="chat-window" class="chat-window">
         <div class="bot-msg">👋 Hi there! I'm Mel's AI assistant. Pick a question below to learn more about her!</div>
       </div>
@@ -182,14 +314,21 @@
         <button onclick="askQuestion('contact')">How can I reach you?</button>
       </div>
     </div>
-  </section>
+    <button id="chat-fab" class="chat-fab" aria-label="Open chat" aria-expanded="false" aria-controls="chat-popup">
+      <i class="fa-solid fa-comment-dots"></i>
+    </button>
+  </div>
 
   <!-- Contact Section -->
   <section id="contact" class="container">
+    <p class="section-eyebrow">05 — Contact</p>
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-grid">
       <div class="contact-info">
-        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:surcomelvienjoy@gmail.com" class="contact-email">surcomelvienjoy@gmail.com</a></p>
+        <p class="contact-email-row"><i class="fa-solid fa-envelope"></i> <a href="mailto:surcomelvienjoy@gmail.com" class="contact-email">surcomelvienjoy@gmail.com</a>
+          <button id="copy-email" class="copy-btn" type="button" aria-label="Copy email address">Copy</button>
+        </p>
+        <p class="contact-location"><i class="fa-solid fa-location-dot"></i> Lipa City, Philippines</p>
         <div class="social-links">
           <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
@@ -206,8 +345,12 @@
   </section>
 
   <footer>
-    <p>&copy; 2026 Mel Vien Joy Surco. All rights reserved.</p>
+    <p>&copy; <span id="year">2026</span> Mel Vien Joy Surco. All rights reserved.</p>
   </footer>
+
+  <button id="to-top" class="to-top" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
   <script src="script.js"></script>
 </body>
