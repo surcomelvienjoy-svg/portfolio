@@ -181,10 +181,12 @@ if (chatFab && chatPopup) {
   });
 }
 
-// 6. ASK ABOUT ME CHATBOT
+// 6. QUICK Q&A ABOUT MEL (rule-based, not AI)
 const answers = {
   skills: 'I specialize in HTML5, CSS3, JavaScript, PHP, and MySQL!',
-  experience: 'I have experience developing full-stack web applications like POS Systems and Payroll Management platforms.',
+  education: 'B.S. in Computer Science at Lipa City Colleges, STEM at LCC Silvercrest SHS, JHS Diploma at Anilao Integrated National High School.',
+  projects: 'Coffee Shop POS (cashier + admin) and Payroll System (automated calc + reporting) — both built with PHP and MySQL.',
+  experience: 'M&V Dessert Shop Manager since 2023 (inventory + payroll for helpers) plus academic full-stack projects like POS and Payroll systems.',
   contact: 'You can reach me directly at surcomelvienjoy@gmail.com or send a message using the form below!'
 };
 
@@ -200,6 +202,8 @@ function askQuestion(type) {
 
   let userText = '';
   if (type === 'skills') userText = 'What are your top skills?';
+  if (type === 'education') userText = 'Where did you study?';
+  if (type === 'projects') userText = 'What did you build?';
   if (type === 'experience') userText = 'Tell me about your experience.';
   if (type === 'contact') userText = 'How can I reach you?';
   if (!userText) return;
@@ -225,24 +229,32 @@ window.askQuestion = askQuestion;
 
 // Auto-open chat on first visit is intentionally off — user opens via bottom-right bubble.
 
-// 7. CONTACT FORM SUBMISSION HANDLER
+// 7. CONTACT FORM — mailto fallback (no backend yet)
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
+    const name = document.getElementById('contact-name');
+    const email = document.getElementById('contact-email');
+    const message = document.getElementById('contact-message');
     const btn = contactForm.querySelector('button[type="submit"]');
     const original = btn ? btn.textContent : '';
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
     if (btn) {
       btn.disabled = true;
-      btn.textContent = 'Sending…';
+      btn.textContent = 'Opening email app…';
     }
+    const subject = encodeURIComponent('Portfolio inquiry from ' + (name ? name.value : 'visitor'));
+    const body = encodeURIComponent((message ? message.value : '') + '\n\n— ' + (name ? name.value : '') + ' (' + (email ? email.value : '') + ')');
+    window.location.href = 'mailto:surcomelvienjoy@gmail.com?subject=' + subject + '&body=' + body;
     setTimeout(() => {
-      alert('Thank you for reaching out! Your message has been sent successfully.');
-      contactForm.reset();
       if (btn) {
         btn.disabled = false;
         btn.textContent = original;
       }
-    }, 450);
+    }, 800);
   });
 }
