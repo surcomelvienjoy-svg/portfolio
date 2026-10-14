@@ -1,17 +1,7 @@
-<<<<<<< HEAD
 // 1. LIGHT / DARK MODE TOGGLE (WITH LOCALSTORAGE)
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
 
-=======
-// ==========================================
-// 1. LIGHT / DARK MODE TOGGLE (WITH LOCALSTORAGE)
-// ==========================================
-const themeToggleBtn = document.getElementById('theme-toggle');
-const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
-
-// Load saved theme preference on initial load
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
   document.body.classList.add('dark-mode');
@@ -24,7 +14,6 @@ if (savedTheme === 'dark') {
 if (themeToggleBtn) {
   themeToggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-<<<<<<< HEAD
     const isDarkMode = document.body.classList.contains('dark-mode');
     if (themeIcon) {
       themeIcon.classList.toggle('fa-moon', !isDarkMode);
@@ -55,26 +44,6 @@ if (menuToggleBtn && navMenu) {
     e.stopPropagation();
     setMenu(!navMenu.classList.contains('open'));
   });
-=======
-    
-    const isDarkMode = document.body.classList.contains('dark-mode');
-
-    // Toggle icon state
-    if (themeIcon) {
-      if (isDarkMode) {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-      } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-      }
-    }
-
-    // Save state to local browser storage
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-  });
-}
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 
   navMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => setMenu(false));
@@ -214,15 +183,9 @@ if (chatFab && chatPopup) {
 
 // 6. ASK ABOUT ME CHATBOT
 const answers = {
-<<<<<<< HEAD
   skills: 'I specialize in HTML5, CSS3, JavaScript, PHP, and MySQL!',
   experience: 'I have experience developing full-stack web applications like POS Systems and Payroll Management platforms.',
   contact: 'You can reach me directly at surcomelvienjoy@gmail.com or send a message using the form below!'
-=======
-  skills: "I specialize in HTML5, CSS3, JavaScript, PHP, and MySQL!",
-  experience: "I have experience developing full-stack web applications like POS Systems and Payroll Management platforms.",
-  contact: "You can reach me directly at surcomelvienjoy@gmail.com or send a message using the form below!"
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 };
 
 function scrollChatToBottom(chatWindow) {
@@ -235,19 +198,11 @@ function askQuestion(type) {
   const chatWindow = document.getElementById('chat-window');
   if (!chatWindow) return;
 
-<<<<<<< HEAD
   let userText = '';
   if (type === 'skills') userText = 'What are your top skills?';
   if (type === 'experience') userText = 'Tell me about your experience.';
   if (type === 'contact') userText = 'How can I reach you?';
   if (!userText) return;
-=======
-  // Set user question text
-  let userText = "";
-  if (type === 'skills') userText = "What are your top skills?";
-  if (type === 'experience') userText = "Tell me about your experience.";
-  if (type === 'contact') userText = "How can I reach you?";
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 
   const userMsgDiv = document.createElement('div');
   userMsgDiv.className = 'user-msg';
@@ -255,49 +210,26 @@ function askQuestion(type) {
   chatWindow.appendChild(userMsgDiv);
   scrollChatToBottom(chatWindow);
 
-<<<<<<< HEAD
   const typingDiv = document.createElement('div');
   typingDiv.className = 'bot-msg';
   typingDiv.textContent = 'Typing…';
   chatWindow.appendChild(typingDiv);
   scrollChatToBottom(chatWindow);
-=======
-  // Auto scroll down
-  chatWindow.scrollTop = chatWindow.scrollHeight;
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 
   setTimeout(() => {
-<<<<<<< HEAD
     typingDiv.textContent = answers[type] || 'Feel free to ask another question!';
     scrollChatToBottom(chatWindow);
   }, 500);
-=======
-    const botMsgDiv = document.createElement('div');
-    botMsgDiv.className = 'bot-msg';
-    botMsgDiv.innerText = answers[type] || "Feel free to ask another question!";
-    chatWindow.appendChild(botMsgDiv);
-    
-    // Auto scroll down to response
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-  }, 400);
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 }
 window.askQuestion = askQuestion;
 
 // Auto-open chat on first visit is intentionally off — user opens via bottom-right bubble.
 
-<<<<<<< HEAD
 // 7. CONTACT FORM SUBMISSION HANDLER
-=======
-// ==========================================
-// 3. CONTACT FORM SUBMISSION HANDLER
-// ==========================================
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     const btn = contactForm.querySelector('button[type="submit"]');
     const original = btn ? btn.textContent : '';
     if (btn) {
@@ -312,10 +244,5 @@ if (contactForm) {
         btn.textContent = original;
       }
     }, 450);
-=======
-    
-    alert('Thank you for reaching out! Your message has been sent successfully.');
-    contactForm.reset();
->>>>>>> e9ca20972c5f5d7e6d873deec99737c4967d60d0
   });
 }
