@@ -1,8 +1,14 @@
 // 1. LIGHT / DARK MODE TOGGLE (WITH LOCALSTORAGE)
+// Safe storage: localStorage can throw (private mode, file:// blocks),
+// and a throw here would kill the whole script including this toggle.
+const safeStorage = {
+  get(key) { try { return localStorage.getItem(key); } catch (err) { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch (err) { /* ignore */ } }
+};
 const themeToggleBtn = document.getElementById('theme-toggle');
 const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
 
-const savedTheme = localStorage.getItem('theme');
+const savedTheme = safeStorage.get('theme');
 if (savedTheme === 'dark') {
   document.body.classList.add('dark-mode');
   if (themeIcon) {
@@ -19,7 +25,7 @@ if (themeToggleBtn) {
       themeIcon.classList.toggle('fa-moon', !isDarkMode);
       themeIcon.classList.toggle('fa-sun', isDarkMode);
     }
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    safeStorage.set('theme', isDarkMode ? 'dark' : 'light');
   });
 }
 
