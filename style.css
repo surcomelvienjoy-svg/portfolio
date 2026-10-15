@@ -179,6 +179,17 @@ body.dark-mode .navbar {
   justify-content: center;
   font-size: 1rem;
   transition: transform 0.15s ease, background 0.2s ease;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.theme-btn i,
+.theme-btn svg,
+.menu-btn i,
+.menu-btn svg {
+  pointer-events: none;
 }
 
 .theme-btn:hover,
