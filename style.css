@@ -685,6 +685,12 @@ body.dark-mode .fa-js { color: #facc15; }
   flex-direction: column;
   align-items: flex-end;
   gap: 14px;
+  pointer-events: none;
+}
+
+.chat-fab-wrap .chat-fab,
+.chat-fab-wrap .chat-popup.open {
+  pointer-events: auto;
 }
 
 .chat-fab {
